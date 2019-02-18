@@ -1,0 +1,289 @@
+/* CUSTOM : '/components/com_joomdle/css/joomdle.css' File optimized */
+
+/* General list definition */
+/* ok */
+.joomdle_item_title {
+    border-style: solid;
+    border-color:#e5e5e5;
+    border-width: 1px 1px 1px 1px;
+    background: #f2f2f2; 
+    margin-bottom: 5px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+    font-weight:bold;
+    padding: 5px; 
+    margin-bottom: 2px;
+    overflow:auto;
+    
+}
+
+/* items shown with no description (4 round corners) */
+/* ok */
+.joomdle_item_full {
+    border-style: solid;
+    border-color:#e5e5e5;
+    border-width: 1px 1px 1px 1px;
+    background: #f2f2f2;
+    margin-bottom: 5px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    font-weight:bold;
+    padding: 5px;
+    margin-bottom: 2px;
+    overflow:auto;
+}
+/* ok */
+.joomdle_item_content {
+    -moz-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
+    border-style: solid;
+    border-color:#e5e5e5;
+    border-width: 1px 1px 1px 1px;
+    background: #f5fcf5; 
+    margin-bottom: 10px;
+    padding: 5px; 
+    overflow:auto;
+    padding-bottom:1px;
+}
+/* Course / Category Lists Views */
+/* ok */
+.joomdle_course_list_item_title {}
+/* ok */
+.joomdle_course_list_item_description {}
+
+
+/* Course Detail View */
+/* TODO: add definitios for elemnts in detail view */
+/* ok */
+.joomdle-courselist h4 {
+    margin-bottom:10px;
+}
+/* ok */
+.joomdle_course_description {
+    overflow:auto;
+    padding-bottom:1px;
+}
+
+.img {
+    opacity: .8;
+}
+
+.inlineForm form {
+    display:inline-block;
+    margin-left: 20px;
+}
+/*add by mjt*/
+.modalprofimg > img {
+    border-radius: 50%;
+    width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+} 
+.modalprofimg {
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    display: inline-block;
+    right: 50%;
+    position: absolute;
+    transform: translate(50%, -58%);
+    -ms-transform: translate(50%, -58%);
+    border-radius: 50%;
+    width: auto;
+}
+.modalprofnme {
+    padding-left: 6% !important;
+    font-size: 30px;
+    display: inline-block;
+    float: left;
+    /*
+    padding-top: 4px;
+    padding-left: 8px;
+    */
+    font-weight: 900 !important;
+    color: #88ba48 !important;
+    z-index:11; 
+} 
+.modalprofnme > a {
+    color:#88ba48;
+}
+.modalnumsec {
+    padding-right: 6% !important;
+    font-size: 30px;
+    display: inline-block;
+    float: right;
+    /*
+    padding-top: 4px;
+    */
+    padding-right: 8px;
+    color: #88ba48;
+}
+.profimg > img {
+    border-radius: 50%;
+    max-height: 88px;
+    width: 150px;
+    object-fit: cover; 
+} 
+.profnme {
+    display: inline-block;
+    float: left;
+    /*
+    padding-top: 4px;
+    padding-left: 8px;
+    */
+    font-weight: 900 !important;
+    color: #88ba48 !important;
+}
+.profnme > a {
+    font-weight: 800;
+    color: #88ba48;
+}
+.profnme7 > a {
+    color: #00adef !important;
+}
+.card-main {
+    overflow:hidden;
+    padding-top:15px; /* add by mahdi agnelli */
+}
+.joomdle_course_topicsnumber {
+    display: inline-block;
+    float: right;
+    /*
+    padding-top: 4px;
+    */
+    padding-right: 8px;
+    color: #88ba48;
+}
+.topicnumber7 {
+    color: #00adef !important;
+}
+.modal-body7 .fa {
+    color:#00adef;
+}
+.modalnumsec7 {
+    color: #00adef !important;
+}
+.ovimg77 {
+    background-image: linear-gradient(to top,#ffffff,#88ba48,#88ba48,#88ba48) !important;
+}
+.ovimg5 {}
+.modal-body5 .fa {
+    color:#88ba48;
+}
+
+.ovimg {
+    /*
+    background: rgba(0, 173, 239, 0.82);
+    background-image: linear-gradient(to top,#ffffff,#1cb3ec,#00adef94,#00adef);
+    opacity: 0.7;
+    */
+    border-radius: 14px 14px 0px 0px;
+    overflow: hidden;
+} 
+.ovimg > img {
+    height: 165px;
+    width: 100%;
+    opacity: 1;    
+}    
+.modalovimg {
+    background: rgba(0, 173, 239, 0.82);
+    /*
+    opacity: 0.8;
+    overflow: hidden;
+    */
+    border-radius: 14px 14px 0px 0px;
+    background-image: linear-gradient(to top,#ffffff,#00adefd1,#00adefd1,#00adefd1);
+}
+.modalovimg7 {
+    background-image: linear-gradient(to top,#ffffff,#88ba48,#88ba48,#88ba48) !important;}
+.modalovimg > img {
+    width: 100%;
+    opacity: 0.85;
+    border-radius: 15px 15px 0px 0px;    
+} 
+.modalprofnme7 a {
+    color: #00adef !important;
+}
+.modalprofnme a {
+    color: #88ba48;
+}
+
+@media only screen and (max-width: 767px) {
+    .profcircle.jf_col.grid_3.last-column {
+        width: 20%;
+    }
+    .counterbox {
+        text-align: center;
+        text-align: -webkit-center;
+        text-align: -moz-center;
+    }
+    .modalprofimg {
+        width:25%;
+    }
+    .profimg > img {
+        max-height:68px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .modalprofnme {
+        font-size:1.3rem;
+    }
+    .modalnumsec {
+        font-size:1.3rem;
+    }
+    .profimg > img {
+        max-height:58px;
+    }
+}
+
+.jf_linkhover2:before {
+    background-color: #88ba48 !important;
+}
+
+@media screen and (max-width: 380px) {
+    .modalprofnme {
+        font-size: 1.2rem;
+        font-weight: bolder;
+        padding-top: 6px !important;
+    }
+}
+
+/* add by mahdi agnelli */
+.joomdle_course_columns {
+    padding:5px;
+    height:300px;
+    float:right;
+}
+
+.joomdle_course_columns_titr {
+    margin: 0px;
+    padding: 10px 0;
+    text-align: center;
+    position: absolute;
+    margin: 0 auto;
+    vertical-align: middle;
+    z-index: 222;
+    top: 46%;
+    left: 50%;
+    color: aliceblue;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 17px;
+    font-weight: 900;
+    width: 100%;
+    filter: drop-shadow(2px 2px 5px black);
+    //background: black;
+    text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black;
+}
+
+.joomdle_course_columns_profcircle {
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;display: inline-block;
+    right: 50%;
+    position: absolute;
+    transform: translate(50%, -50%);
+    -ms-transform: translate(50%, -50%);
+    border-radius: 50%;
+}
