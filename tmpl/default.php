@@ -33,7 +33,14 @@
         $open_in_wrapper = 0;
 
     $unicodeslugs = JFactory::getConfig()->get('unicodeslugs');
-    
+
+    $free_courses_button = $comp_params->get( 'free_courses_button' );
+    $paid_courses_button = $comp_params->get( 'paid_courses_button' );
+
+    // load LANG for JText::_()
+	$lang = JFactory::getLanguage();
+	$lang->load('com_joomdle', JPATH_ROOT);
+
 ?>
     <div class="joomdlecourses<?php echo $moduleclass_sfx; ?>" style="display: block; margin: 0 auto;">
 <?php
@@ -65,7 +72,28 @@
             if (is_array ($summary_file))
                 $summary_file = array_shift($summary_file);
             if (count ($summary_file) == 0) // summary_file is empty
-                $summary_file["url"] = JURI::root ().'modules/mod_joomdle_courses_grow/assets/image/no-image-min.png';
+                $summary_file["url"] = JURI::root ().'media/joomdle/grow/no-image-min.png';
+
+
+            if ($linkto == 'moodle') {
+                if ($default_itemid)
+                    $itemid = $default_itemid;
+
+                if ($username) {
+                    $url = $moodle_auth_land_url."?username=$username&token=$token&mtype=course&id=$id&use_wrapper=$open_in_wrapper&create_user=1&Itemid=$itemid";
+                }
+                else
+                    if ($open_in_wrapper)
+                        $url = $moodle_auth_land_url."?username=guest&mtype=course&id=$id&use_wrapper=$open_in_wrapper&Itemid=$itemid";
+                    else
+                        $url = $moodle_url."/course/view.php?id=$id";
+            }
+            else {
+                if ($joomdle_itemid)
+                    $itemid = $joomdle_itemid;
+
+                $url = JRoute::_("index.php?option=com_joomdle&view=detail&cat_id=".$course['cat_id'].":".$cat_slug."&course_id=".$course['remoteid'].':'.$course_slug."&Itemid=$itemid");
+            }
 ?>
             <div class="jf_col jf_anim_done grid_4 last-column joomdle_course_columns">
                 <div class="jf_card">
@@ -80,24 +108,7 @@
                                     echo '<img class="img" hspace="0" vspace="5" align="center" src="'.$summary_file['url'].'" data-src="'.$summary_file['url'].'" >';
                                     /* COURSE TITLE SECTION */
                                     echo '<p class="joomdle_course_columns_titr" style="">';
-                                        if ($linkto == 'moodle') {
-                                            if ($default_itemid)
-                                                $itemid = $default_itemid;
-                                            if ($username) {
-                                                echo $course['fullname'];
-                                            }
-                                            else
-                                                if ($open_in_wrapper)
-                                                    echo $course['fullname'];
-                                                else
-                                                    echo $course['fullname'];
-                                        }
-                                        else {
-                                            if ($joomdle_itemid)
-                                                $itemid = $joomdle_itemid;
-                                            $url = JRoute::_("index.php?option=com_joomdle&view=detail&cat_id=".$course['cat_id'].":".$cat_slug."&course_id=".$course['remoteid'].':'.$course_slug."&Itemid=$itemid");
-                                            echo $course['fullname'];
-                                        }
+                                        echo $course['fullname'];
                                     echo '</p>';
                                 echo '</div>';
                             echo '</a>';
@@ -112,14 +123,14 @@
                                 // if (!count ($teacher_user_info)) //not a Joomla user
                                     // continue;
                             else
-                                $teacher_user_info['pic_url'] = JURI::root ().'modules/mod_joomdle_courses_grow/assets/image/anonymous_user_avatar_100.jpg';
-                                
+                                $teacher_user_info['pic_url'] = JURI::root ().'media/joomdle/grow/anonymous_user_avatar_100.jpg';
+
                             // Use thumbs if available
                             if ((array_key_exists ('thumb_url', $teacher_user_info)) && ($teacher_user_info['thumb_url'] != ''))
                                 $teacher_user_info['pic_url'] = $teacher_user_info['thumb_url'];
-                            
+
                             if (!(array_key_exists ('pic_url', $teacher_user_info)) || ($teacher_user_info['pic_url'] == ''))
-                                $teacher_user_info['pic_url'] = JURI::root ().'modules/mod_joomdle_courses_grow/assets/image/anonymous_user_avatar_100.jpg';
+                                $teacher_user_info['pic_url'] = JURI::root ().'media/joomdle/grow/anonymous_user_avatar_100.jpg';
 ?>
                             <a class="profimg" ><img src="<?php echo $teacher_user_info['pic_url']; ?>"></a>
                         </div>
@@ -138,8 +149,8 @@
                             <b><?php echo $course['numsections']." جلسه"; ?></b>
                         </div>
                     </div>
-                    
-                    
+
+                    <!-- POPUP CONTENTS -->
                     <div style="padding:10px" id="modal<?php echo $courseCounter; ?>" class="modal fade" tabindex="-1">
                         <div class="modal-dialog waves-effect" style="cursor: crosshair;">
                             <div class="modal-content" style="border-radius: 16px;padding-bottom: 20px;">
@@ -182,36 +193,21 @@
                                     if ($course['summary'])
                                         echo '<div>'.JoomdleHelperSystem::fix_text_format($course['summary']).'</div>';
                                     if ($linkto == 'moodle') {
-                                        if ($default_itemid)
-                                            $itemid = $default_itemid;
-
-                                        if ($username) {
-                                            echo "<a $target href=\"".$moodle_auth_land_url."?username=$username&token=$token&mtype=course&id=$id&use_wrapper=$open_in_wrapper&create_user=1&Itemid=$itemid \">اطلاعات بیشتر ...</a><br>";
-                                        }
-                                        else
-                                            if ($open_in_wrapper)
-                                                echo "<a $target href=\"".$moodle_auth_land_url."?username=guest&mtype=course&id=$id&use_wrapper=$open_in_wrapper&Itemid=$itemid \">اطلاعات بیشتر ...</a><br>";
-                                            else
-                                                echo "<a $target href=\"".$moodle_url."/course/view.php?id=$id \">اطلاعات بیشتر...</a><br>";
-                                    }
-                                    else {
-                                        if ($joomdle_itemid)
-                                            $itemid = $joomdle_itemid;
-
-                                        $url = JRoute::_("index.php?option=com_joomdle&view=detail&cat_id=".$course['cat_id'].":".$cat_slug."&course_id=".$course['remoteid'].':'.$course_slug."&Itemid=$itemid");
+                                        echo "<a $target href=\"".$url." \">اطلاعات بیشتر ...</a><br>";
                                     }
                                 echo '</div>';
 
                                 /* POPUP MORE LINK AND ENROLL BUTTON SECTION */
                                 echo '<div class="inlineForm center" style="padding:10px" >';
-                                    echo JoomdleHelperSystem::actionbutton ( $course );
-                                    echo "<a style=\"direction:rtl\" href=\"".$url."\">اطلاعات بیشتر...</a><br>";
+                                    // echo JoomdleHelperSystem::actionbutton ( $course );
+                                    echo JoomdleHelperSystem::actionbutton ( $course, $free_courses_button, $paid_courses_button);
+                                    echo "<a style=\"direction:rtl\" href=\"".$url."\">اطلاعات بیشتر ...</a><br>";
                                 echo '</div>';
                             echo '</div>';
-                        echo '</div>'; 
-                    echo '</div>'; 
-                echo '</div>'; 
-            echo '</div>'; 
+                        echo '</div>';
+                    echo '</div>';
+                echo '</div>';
+            echo '</div>';
             $courseCounter++;
             $courseShowLimit++;
             if ($courseShowLimit >= $limit) // Show only this number of latest courses

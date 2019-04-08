@@ -15,6 +15,15 @@
 		<filename module="mod_joomdle_courses_grow">tmpl/default.php</filename>
         <folder   module="mod_joomdle_courses_grow">assets</folder>
 	</files>
+	<media folder="media" destination="joomdle/grow">
+		<filename>index.html</filename>
+		<filename>readme.txt</filename>
+		<filename>anonymous_user_avatar_100.jpg</filename>
+		<filename>anonymous_user_avatar_498.jpg</filename>
+		<filename>no-image-min.png</filename>
+		<folder>slick</folder>
+		<folder>owlcarousel</folder>
+	</media>
 	<languages>
 		<language tag="en-GB">language/en-GB.mod_joomdle_courses_grow.sys.ini</language>
 		<language tag="en-GB">language/en-GB.mod_joomdle_courses_grow.ini</language>
